@@ -1,28 +1,50 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-main>
+      <v-row justify="space-around">
+        <v-date-picker
+          v-model="picker"
+          :year-format="yearFormat"
+          :header-date-format="headerDateFormat"
+          color="green lighten-1" />
+        <v-date-picker
+          v-model="picker"
+          color="green lighten-1"
+          header-color="primary" />
+      </v-row>
+      <v-row justify="center">
+        {{ picker }}
+      </v-row>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld,
+  data () {
+    return {
+      picker: null
+    }
   },
-};
-</script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  methods: {
+    yearFormat (val) {
+      const year = parseInt(val) + 543
+      return year
+    },
+    headerDateFormat (val) {
+      const dateArr = val.split('-')
+      const titleDateFormat = []
+      if (dateArr[1]) {
+        titleDateFormat.push(this.$dayjs(dateArr[1]).format('MMM'))
+      }
+      if (dateArr[0]) {
+        titleDateFormat.push(this.yearFormat(this.$dayjs(dateArr[0]).format('YYYY')))
+      }
+      console.log('titleDateFormat', titleDateFormat.join(' '))
+      return titleDateFormat.join(' ')
+    }
+  }
 }
-</style>
+</script>
