@@ -42,7 +42,6 @@ export default {
       if (dateArr[0]) {
         titleDateFormat.push(this.yearFormat(this.$dayjs(dateArr[0]).format('YYYY')))
       }
-      console.log('titleDateFormat', titleDateFormat.join(' '))
       return titleDateFormat.join(' ')
     }
   }
