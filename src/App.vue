@@ -37,7 +37,7 @@ export default {
       const dateArr = val.split('-')
       const titleDateFormat = []
       if (dateArr[1]) {
-        titleDateFormat.push(this.$dayjs(dateArr[1]).format('MMM'))
+        titleDateFormat.push(this.$dayjs(dateArr[1]).format('MMMM'))
       }
       if (dateArr[0]) {
         titleDateFormat.push(this.yearFormat(this.$dayjs(dateArr[0]).format('YYYY')))
