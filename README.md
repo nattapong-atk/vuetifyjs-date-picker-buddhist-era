@@ -1,5 +1,5 @@
 #DEMO
-[LINK](vuetifyjs-date-picker-buddhist-era.netlify.app)
+[LINK](https://vuetifyjs-date-picker-buddhist-era.netlify.app)
 
 # vuetifyjs-date-picker-buddhist-era
 
